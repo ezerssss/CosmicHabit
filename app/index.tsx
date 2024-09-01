@@ -2,23 +2,12 @@ import { TouchableOpacity, View, Pressable, Dimensions } from 'react-native';
 import React, { useEffect } from 'react';
 import { Image } from 'expo-image';
 
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '~/components/ui/dialog';
-import ThemedText from '~/components/ThemedText';
-
 import Animated, {
   useSharedValue,
   withRepeat,
   withTiming,
 } from 'react-native-reanimated';
+import Planet from '~/components/Planet';
 
 export default function HomeScreen() {
   const position = useSharedValue(-50);
@@ -35,35 +24,7 @@ export default function HomeScreen() {
 
   return (
     <View className="flex-1 bg-black justify-center items-center">
-      <Dialog>
-        <DialogTrigger asChild>
-          <TouchableOpacity>
-            <Image
-              source={require('~/assets/images/moon.gif')}
-              style={{ width: 100, height: 100 }}
-            />
-          </TouchableOpacity>
-        </DialogTrigger>
-        <DialogContent className="w-[500px] max-w-[90%]">
-          <DialogHeader>
-            <DialogTitle>
-              <ThemedText>Record ✨</ThemedText>
-            </DialogTitle>
-            <DialogDescription>
-              <ThemedText>
-                Log your hobbies and give birth to a new star!
-              </ThemedText>
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <DialogClose asChild>
-              <Pressable>
-                <ThemedText>OK</ThemedText>
-              </Pressable>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      <Planet />
       <Animated.View
         style={{
           position: 'absolute',
