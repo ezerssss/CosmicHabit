@@ -4,14 +4,7 @@ import { Image } from 'expo-image';
 
 export default function HomeScreen() {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: 'black',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <View className="flex-1 bg-black justify-center items-center">
       <TouchableOpacity>
         <Image
           source={require('@/assets/images/moon.gif')}
@@ -19,7 +12,7 @@ export default function HomeScreen() {
         />
       </TouchableOpacity>
       <Image
-        source={require('@/assets/images/stars.gif')}
+        source={require('@/assets/images/stars1.gif')}
         style={{
           width: 36,
           height: 33,
@@ -29,7 +22,7 @@ export default function HomeScreen() {
         }}
       />
       <Image
-        source={require('@/assets/images/stars.gif')}
+        source={require('@/assets/images/stars2.gif')}
         style={{
           width: 26,
           height: 23,
@@ -39,7 +32,7 @@ export default function HomeScreen() {
         }}
       />
       <Image
-        source={require('@/assets/images/stars.gif')}
+        source={require('@/assets/images/stars3.gif')}
         style={{
           width: 16,
           height: 13,
