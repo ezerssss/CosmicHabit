@@ -8,10 +8,13 @@ import {
 import { Input } from '~/components/ui/input';
 import { TouchableOpacity, View } from 'react-native';
 import { cn } from '~/lib/utils';
-import { Separator } from './ui/separator';
 
-export default function HeadingInput() {
-  const [value, setValue] = useState('');
+interface Props {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function TitleInput({ value, setValue }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleSuggestionsClick(suggestion: string) {
@@ -36,7 +39,7 @@ export default function HeadingInput() {
           onPress={() => setIsOpen(!isOpen)}
           aria-labelledby="Hobby/Habit Title"
           aria-errormessage="inputError"
-          style={{ fontFamily: 'Pixelify' }}
+          style={{ fontFamily: 'Pixelify', fontSize: 14 }}
           className={cn(
             isOpen ? 'rounded-b-none border-b-2 border-b-400' : 'rounded-b-lg',
           )}

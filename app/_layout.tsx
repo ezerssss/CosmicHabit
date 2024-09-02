@@ -7,6 +7,7 @@ import 'react-native-reanimated';
 import '../global.css';
 
 import { PortalHost } from '@rn-primitives/portal';
+import { Audio } from 'expo-av';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -16,8 +17,18 @@ export default function RootLayout() {
     Pixelify: require('../assets/fonts/PixelifySans-Regular.ttf'),
   });
 
+  async function playBGMusic() {
+    await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
+
+    const { sound: playbackObject } = await Audio.Sound.createAsync(
+      { uri: require('~/assets/audio/outer_space.mp3') },
+      { shouldPlay: true },
+    );
+  }
+
   useEffect(() => {
     if (loaded) {
+      playBGMusic();
       SplashScreen.hideAsync();
     }
   }, [loaded]);

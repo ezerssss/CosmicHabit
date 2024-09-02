@@ -1,4 +1,4 @@
-import { TouchableOpacity, Pressable } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { Image } from 'expo-image';
 import {
   Dialog,
@@ -11,10 +11,14 @@ import {
   DialogTrigger,
 } from '~/components/ui/dialog';
 import ThemedText from '~/components/ThemedText';
-import React from 'react';
-import HeadingInput from './HeadingInput';
+import React, { useState } from 'react';
+import TitleInput from './TitleInput';
+import OptionalDescriptionInput from './OptionalDescriptionInput';
 
 export default function Planet() {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -36,12 +40,18 @@ export default function Planet() {
             </ThemedText>
           </DialogDescription>
         </DialogHeader>
-        <HeadingInput />
+
+        <TitleInput value={title} setValue={setTitle} />
+        <OptionalDescriptionInput
+          value={description}
+          setValue={setDescription}
+        />
+
         <DialogFooter>
           <DialogClose asChild>
-            <Pressable>
-              <ThemedText>OK</ThemedText>
-            </Pressable>
+            <TouchableOpacity className="border border-gray-400 bg-black w-[50px] rounded-lg p-2">
+              <ThemedText className="text-white">Save</ThemedText>
+            </TouchableOpacity>
           </DialogClose>
         </DialogFooter>
       </DialogContent>
