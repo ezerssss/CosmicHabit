@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import React from 'react';
+import React, { memo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import {
   Dialog,
@@ -28,7 +28,7 @@ const star3 = require('~/assets/images/stars3.gif');
 const star4 = require('~/assets/images/stars4.gif');
 const star5 = require('~/assets/images/stars5.gif');
 
-export default function Star(props: PropsInterface) {
+export default memo(function Star(props: PropsInterface) {
   const { starType, size, x, y } = props;
 
   let starGIF = star1;
@@ -84,4 +84,4 @@ export default function Star(props: PropsInterface) {
       </DialogContent>
     </Dialog>
   );
-}
+});

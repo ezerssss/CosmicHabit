@@ -32,7 +32,7 @@ export default function TitleInput({ value, setValue }: Props) {
     <Collapsible defaultOpen={false} open={isOpen}>
       <CollapsibleTrigger>
         <Input
-          autoFocus
+          // autoFocus
           placeholder="What did you do today?"
           value={value}
           onChangeText={onChangeText}

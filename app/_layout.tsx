@@ -18,12 +18,15 @@ export default function RootLayout() {
   });
 
   async function playBGMusic() {
-    await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
-
-    const { sound: playbackObject } = await Audio.Sound.createAsync(
-      { uri: require('~/assets/audio/outer_space.mp3') },
-      { shouldPlay: true },
-    );
+    try {
+      const { sound } = await Audio.Sound.createAsync(
+        require('~/assets/audio/outer_space.mp3'),
+        { isLooping: true },
+      );
+      await sound.playAsync();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   useEffect(() => {
